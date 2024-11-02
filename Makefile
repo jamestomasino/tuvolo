@@ -7,6 +7,9 @@ help:
 web: ## Launch web view of files
 	@node ./web/index.js
 
+render: ## Render web files for static viewing
+	@node ./web/render.js
+
 wc: ## total wordcount for repository
 	@find . -not -path "./web/*" -not -path "./.git/*" -not -path "./.*" -type f -exec cat {} + | wc -w
 
