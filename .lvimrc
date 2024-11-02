@@ -1,0 +1,26 @@
+" Spellfile to use project based file
+let s:safespelllang = join(split(&spelllang, "_"), "-")
+let s:safeencoding = join(split(&encoding, "_"), "-")
+let s:spellfileurl = expand('<sfile>:p:h') . '/.proj.' . s:safespelllang . '.' . s:safeencoding . '.add'
+let &spellfile = s:spellfileurl
+
+" Use dict for autocomplete
+autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
+
+"Abolish Setup in this project
+
+"" `expand('<sfile>:p')` gets the absolute path of the
+" current file that this is being executed from.
+" We'll use this location to save new abbreviations as
+" they are added.
+let g:abolish_save_file = expand('<sfile>:p')
+
+" quit if no Abolish
+if !exists(":Abolish")
+	finish
+endif
+
+" Characters
+Abolish tu{,s} Tuvolo{,'s}
+
+" Unsorted

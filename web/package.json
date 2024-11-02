@@ -1,0 +1,26 @@
+{
+  "name": "wiki-web",
+  "version": "1.0.0",
+  "description": "Node front-end to vimwiki",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "eslint .",
+    "start": "node index.js"
+  },
+  "author": "James Tomasino",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "dompurify": "^2.3.6",
+    "express": "^4.17.3",
+    "find-in-files": "^0.5.0",
+    "jsdom": "^19.0.0",
+    "markdown-it": "^12.3.2",
+    "markdown-it-anchor": "^8.4.1",
+    "markdown-it-title": "^4.0.0",
+    "markdown-it-toc-done-right": "^4.2.0",
+    "markdown-it-underline": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0"
+  }
+}
