@@ -22,6 +22,11 @@ endif
 
 " Characters
 Abolish tu{,s} Tuvolo{,'s}
+Abolish sev{,s} Seval{,'s}
+Abolish ben{,s} Benadot{,'s}
+Abolish mer{,s} Mercalo{,'s}
+Abolish ast{,s} Astrig{,'s}
+Abolish ren{,s} Rendal{,'s}
 
 " Unsorted
 Abolish nor Norals

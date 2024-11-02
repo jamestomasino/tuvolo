@@ -29,4 +29,18 @@ Crutches had served him that way. Leaned against a familiar stone by younger men
 eager to go and do things. Like a rake or spade unneeded, put away. But to move
 under one's own power--
 
-Snow covered his feet.
+Tuvolo was resigned when his legs didn't move. Even in a dream that was too
+much. But then he felt the snow shift. Snow. It buried his feet. Yes, he could
+feel it halfway up his legs now. The sound of the powder shifting was like
+breathing.
+
+A knee, a foot, and freedom. His toes bare, snow like sand, shifting, sliding.
+Tuvolo tried to remember what it was to balance a body, to use your power to
+move. And then he was. He was walking.
+
+Bare feet carried him across the snow top. Behind him he saw the slightest of prints
+filled and vanish a dozen paces away. Curiosity nearly had him look down to see
+what wonder was keeping him above the powder. But no, not yet. This freedom was
+too much to give up to reality. Not yet.
+
+Freedom was precious.
