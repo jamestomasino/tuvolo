@@ -1,8 +1,8 @@
 const express = require('express')
+const chalk = require('chalk')
 const execSync = require('child_process').execSync
 const fs = require('fs')
 const path = require('path')
-const findInFiles = require('find-in-files')
 const createDOMPurify = require('dompurify')
 const { JSDOM } = require('jsdom')
 const window = new JSDOM('').window
@@ -18,11 +18,10 @@ const md = require('markdown-it')({
   .use(require('markdown-it-title'))
   .use(require('markdown-it-underline'))
 
-const rootURL = 'https://localhost:3000/'
+var rootURL = ''
 const rootFolder = './'
 const sourceFileExt = '.md'
 const app = express()
-const port = 3000
 
 // Engine for simple variable replacement in views
 app.engine('wiki', function (filePath, options, callback) {
@@ -74,6 +73,7 @@ app.get('*', function(req, res){
     const content = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } })
     const title = 'The Last Call'
     res.render('basic', { title: title, content: content, canonical: fullUrl})
+    console.log(`${chalk.green("   Loading:")} ${chalk.green.bold(`${fullUrl}`)}`)
   } catch (_e) {
     const filePath = path.join(rootFolder, decodeURIComponent(req.path))
     try {
@@ -105,9 +105,11 @@ app.get('*', function(req, res){
 
           /* render it all */
           res.render('basic', { title: req.path, content: allChapters, canonical: fullUrl})
+          console.log(`${chalk.green("   Loading:")} ${chalk.green.bold(`${fullUrl}`)}`)
         } else {
           // Otherwise, if the item is a directory: show all the items inside that directory.
           res.render('basic', { title: req.path, content: filesInDir, canonical: fullUrl})
+          console.log(`${chalk.green("   Loading:")} ${chalk.green.bold(`${fullUrl}`)}`)
         }
       }
     } catch (_e) {
@@ -120,7 +122,15 @@ app.get('*', function(req, res){
   }
 })
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}!`)
-})
-
+const server = app.listen(0, (err) => {
+  if (!err) {
+    rootURL = `http://localhost:${server.address().port}`
+    console.log(
+      `\n${chalk.rgb(7, 54, 66).bgRgb(38, 139, 210)(" I ")} ${chalk.blue(
+        "Application is running at"
+      )} ${chalk.rgb(235, 220, 52).bold(`${rootURL}`)}\n`
+    );
+  } else {
+    console.err(`\nUnable to start server: ${err}`);
+  }
+});

@@ -12,6 +12,7 @@
   "dependencies": {
     "@netlify/functions": "^2.8.2",
     "@types/express": "^5.0.0",
+    "chalk": "^4.1.2",
     "dompurify": "^2.3.6",
     "express": "^4.21.1",
     "find-in-files": "^0.5.0",
@@ -23,6 +24,8 @@
     "markdown-it-underline": "^1.0.1"
   },
   "devDependencies": {
-    "eslint": "^8.12.0"
+    "@eslint/js": "^9.14.0",
+    "eslint": "^8.57.1",
+    "globals": "^15.11.0"
   }
 }

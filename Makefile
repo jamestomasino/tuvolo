@@ -4,7 +4,7 @@ help:
 	| sed -n 's/^\(.*\): \(.*\)#\(.*\)/  \1|-\3/p' \
 	| column -t  -s '|'
 
-web: ## Launch web view of files
+web: web/node_modules ## Launch web view of files
 	@node ./web/index.js
 
 wc: ## total wordcount for repository
@@ -15,5 +15,8 @@ wc_book: ## total wordcount for book itself
 
 wc_notes: ## total wordcount for notes
 	@find ./notes -type f -exec cat {} + | wc -w
+
+web/node_modules: web/package.json
+	cd web; npm i
 
 .PHONY: help wc wc_book wc_notes web
