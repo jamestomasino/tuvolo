@@ -1,10 +1,8 @@
 ## Chapter 1 - A final dream
 
-On the night Tuvolo died, he had a dream.
-
-He was standing on a great white cliff overlooking rolling hills of snow and
-pine. His nostrils itched. His breath froze. There was a deepness to this
-chill that went beyond the wind.
+On the night Tuvolo died, he had a dream. He was standing on a great white cliff
+overlooking rolling hills of snow and pine. His nostrils itched. His breath
+froze. There was a deepness to this chill that went beyond the wind.
 
 Far away a river cut through the land, leading ever onward. Moonlight reflecting
 on snow and ice cast an omnipresent glow of unreality. Or perhaps that was just
