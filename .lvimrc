@@ -24,3 +24,4 @@ endif
 Abolish tu{,s} Tuvolo{,'s}
 
 " Unsorted
+Abolish nor Norals

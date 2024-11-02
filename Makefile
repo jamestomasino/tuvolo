@@ -8,15 +8,12 @@ web: ## Launch web view of files
 	@node ./web/index.js
 
 wc: ## total wordcount for repository
-	@find . -not -path "./web/*" -type f -exec cat {} + | wc -w
+	@find . -not -path "./web/*" -not -path "./.git/*" -not -path "./.*" -type f -exec cat {} + | wc -w
 
 wc_book: ## total wordcount for book itself
 	@find ./book -type f -exec cat {} + | wc -w
 
-wc_notes: ## total wordcount for book itself
+wc_notes: ## total wordcount for notes
 	@find ./notes -type f -exec cat {} + | wc -w
 
-wc_summary: ## total wordcount for book itself
-	@find ./summary -type f -exec cat {} + | wc -w
-
-.PHONY: help wc wc_book wc_notes wc_summary web
+.PHONY: help wc wc_book wc_notes web
