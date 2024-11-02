@@ -72,7 +72,7 @@ app.get('*', function(req, res){
     const env = {}
     const dirty = md.render(buffer, env)
     const content = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } })
-    const title = 'Hierophant'
+    const title = 'The Last Call'
     res.render('basic', { title: title, content: content, canonical: fullUrl})
   } catch (_e) {
     const filePath = path.join(rootFolder, decodeURIComponent(req.path))
