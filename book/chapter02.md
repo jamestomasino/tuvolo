@@ -1,4 +1,4 @@
-## Chapter 2
+## Chapter 2 - Sixty-two years earlier
 
 Gunshots peppered endlessly in the background, a staccato rhythm that blended
 with the never-ending rain. It drummed into your soul, ten thousand tiny strikes

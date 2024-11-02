@@ -1,3 +1,4 @@
+const serverless = require('serverless-http')
 const express = require('express')
 const execSync = require('child_process').execSync
 const fs = require('fs')
@@ -120,4 +121,5 @@ app.get('*', function(req, res){
   }
 })
 
-app.listen(port, () => console.log(`listening on port ${port}!`))
+module.exports.handler = serverless(app);
+// app.listen(port, () => console.log(`listening on port ${port}!`))
