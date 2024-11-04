@@ -28,3 +28,8 @@ Silence was not possible in the jungle, but if Tuvolo listened very, very hard,
 he could almost make it out under the rhythms of war. It called to him from very
 far away, but his attention must be here. The guns approached, and with them
 a sound far worse. Dogs.
+
+Their howls were the screaming winter winds and Tuvolo's footsteps faltered in
+the snow. No, mud. Mud that tried to grab his ankles as he ran. Rendal called
+out, sounds of panic. Dogs would chase them, scent them, and all would be lost.
+He left his friends there

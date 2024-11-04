@@ -72,7 +72,7 @@ app.get('*', function(req, res){
     const dirty = md.render(buffer, env)
     const content = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } })
     const title = 'The Last Call'
-    res.render('basic', { title: title, content: content, canonical: fullUrl})
+    res.render('basic', { title: title, content: content })
     console.log(`${chalk.green("   Loading:")} ${chalk.green.bold(`${fullUrl}`)}`)
   } catch (_e) {
     const filePath = path.join(rootFolder, decodeURIComponent(req.path))
@@ -104,11 +104,11 @@ app.get('*', function(req, res){
           allChapters += DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } })
 
           /* render it all */
-          res.render('basic', { title: req.path, content: allChapters, canonical: fullUrl})
+          res.render('basic', { title: req.path, content: allChapters })
           console.log(`${chalk.green("   Loading:")} ${chalk.green.bold(`${fullUrl}`)}`)
         } else {
           // Otherwise, if the item is a directory: show all the items inside that directory.
-          res.render('basic', { title: req.path, content: filesInDir, canonical: fullUrl})
+          res.render('basic', { title: req.path, content: filesInDir })
           console.log(`${chalk.green("   Loading:")} ${chalk.green.bold(`${fullUrl}`)}`)
         }
       }
@@ -117,7 +117,7 @@ app.get('*', function(req, res){
       const error = '<p>Entry not found. Please try again.</p>'
       const content = back + '<br><br>' + error
       res.status(404)
-      res.render('basic', { title: 'Error: Content not found', content: content, canonical: fullUrl})
+      res.render('basic', { title: 'Error: Content not found', content: content })
     }
   }
 })
