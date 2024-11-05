@@ -30,6 +30,5 @@ far away, but his attention must be here. The guns approached, and with them
 a sound far worse. Dogs.
 
 Their howls were the screaming winter winds and Tuvolo's footsteps faltered in
-the snow. No, mud. Mud that tried to grab his ankles as he ran. Rendal called
-out, sounds of panic. Dogs would chase them, scent them, and all would be lost.
-He left his friends there
+the snow. No, mud. Mud that tried to grab his ankles while Rendal's strangled
+cries grabbing his heart.
