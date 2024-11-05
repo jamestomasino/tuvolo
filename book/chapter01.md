@@ -1,4 +1,4 @@
-## Chapter 1 - A final dream
+## Chapter 1 - The Dream
 
 On the night Tuvolo died, he had a dream. He was standing on a great white cliff
 overlooking rolling hills of snow and pine. His nostrils itched. His breath
