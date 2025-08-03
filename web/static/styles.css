@@ -1,44 +1,150 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
-/* Print Styles */
+@page { size: A4 portrait; margin: 25.4mm; }
 
 @page {
-    size: 5.5in 8.5in;
+  @top-right {
+    content: "TOMASINO / TUVOLO / " counter(page);
+  }
 }
-@page :left {
-    margin-left: 3cm;
+@page :first {
+  @top-right {
+    content: "";
+  }
 }
-@page :right {
-    margin-left: 4cm;
-}
-@page:right{
-    @bottom-left {
-        margin: 10pt 0 30pt 0;
-        border-top: .25pt solid #666;
-        content: "My book";
-        font-size: 9pt;
-        color: #333;
-    }
-}
+
 h1, h2, h3, h4, h5 {
   page-break-after: avoid;
 }
+
 table, figure {
   page-break-inside: avoid;
 }
-@page:right{
-  @bottom-right {
-    content: counter(page);
-  }
+
+* {
+  box-sizing: border-box;
 }
-@page:left{
-  @bottom-left {
-    content: counter(page);
+
+.wordcount {
+  position: absolute;
+  line-height: 1.4em;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+
+.author {
+  position: absolute;
+  line-height: 1.4em;
+  top: 0;
+  left: 0;
+  text-align: left;
+}
+
+.category {
+  position: absolute;
+  line-height: 1.4em;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+header {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  line-height: 1em;
+}
+
+h2, h3, h4, h5, h6 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+h2 {
+  break-before: page;
+}
+
+
+p,
+li {
+  margin: 0;
+}
+a,
+a:hover,
+a:visited {
+  color: #000;
+}
+
+hr {
+  border: none;
+  margin-bottom: 2em;
+  color: currentColor;
+  text-align: center;
+}
+
+.table-of-contents {
+  break-after: page;
+}
+
+.table-of-contents ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+@media print {
+  h1, h2, h3, h4, h5 {
+    font-size: 1em;
+  }
+  h1 + p {
+    line-height: 1.4em;
+  }
+  body {
+    font-size: 12pt;
+    line-height: 2em;
+    font-family: "Times New Roman", "Times", serif;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-smooth: always;
+    font-variant: historical-ligatures;
+    font-feature-settings: "hlig" 1, "dlig" 1, "onum" 1, "zero" 1, "swsh" 1, "kern" 1, "medi" 1;
+    hyphens: none;
+  }
+  h2 {
+    margin-top: 8cm;
+    margin-bottom: 1cm;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  h2 + p,
+  p + p {
+    text-indent: 1.25cm;
+  }
+  hr::before {
+    content: "#";
+  }
+  .table-of-contents {
+    margin-top: 8cm;
+  }
+  .table-of-contents a {
+    display: block;
+  }
+  .table-of-contents a::after {
+    content: leader(".") target-counter(attr(href), page); 
   }
 }
 
-/* Screen */
-body {
+@media screen {
+  body {
+    position: relative;
     font-family: 'EB Garamond', serif;
     font-size: 16pt;
     font-weight: 450;
@@ -49,167 +155,16 @@ body {
     padding: 0 1ch;
     box-sizing: border-box;
     scroll-behavior: smooth;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-.wordcount {
-    position: absolute;
-    top: 0;
-    width: calc(100% - 2ch);
-    max-width: 70ch;
-    padding: 0 1ch;
-    text-align: right;
-    margin: 0 auto;
-}
-
-.category {
-    position: absolute;
-    width: calc(100% - 2ch);
-    max-width: 70ch;
-    top: calc(100vh - 20ex);
-    text-align: center;
-}
-
-/**
- * Use the semantic <header> tag to mark up the title page. This text is always
- * centered, and, if we're outputting to printed media, we want this to be on
- * it's own page.
- */
-header {
-    text-align: center;
-    break-after: page;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-h1 {
-    margin: 0;
-}
-
-h2, h3, h4, h5, h6 {
-    margin-top: 2em;
-    margin-bottom: 1em;
-}
-
-/**
- * A new chapter should always start on a new page in printed media. Since the
- * title of the book would be an <h1>, I'm assuming only <h2>s are chapter
- * titles. Any heading below an <h2> would be a section title of some sort, and
- * not warrant a new page (and probably wouldn't appear in a novel, anyway,
- * being relegated to more formally structured content like textbooks).
- */
-h2 {
-    break-before: page;
-}
-
-/**
- * Browsers default to "web style" paragraph delineation, aka whitespace
- * between each one. Most books are not set this way, instead using text
- * indentation (see below). Get rid of that space between.
- */
-p,
-li {
-    margin: 0;
-}
-a,
-a:hover,
-a:visited {
-    color: #000;
-}
-
-/**
- * Drop Caps for chapter start
- */
-h2 + p::first-letter {
-  float: left;
-  font-size: 5rem;
-  padding-top: 8px;
-  padding-right: 4px;
-}
-
-/**
- * "Book style" paragraph delineation uses indentation for each paragraph after
- * the first. Presumably, you don't need the indentation for the first
- * paragraph, since there's a chapter heading or whitespace or just not text
- * above it to indicate that what you're reading is, indeed, a paragraph. The
- * same is true for any other non-paragraph element, aka a list or an image.
- * Using the adjacent sibling combinator, we match every paragraph that follows
- * another paragraph, and add our text indent. This is conceptually different
- * but has the same effect here as giving every paragraph a text indent, and
- * then removing it for :first-of-type. For the indent itself, a value of about
- * two characters is pretty common in print, but occasionally I've seen four is
- * used as well.
- */
-p + p {
+  }
+  p + p {
     text-indent: 2ch;
-}
-
-/**
- * The horizontal rule element, now appropriately re-appropriated as the
- * thematic break element. Thematic breaks take many forms in different
- * printings—a plain horizontal line, a decorative, squiggly line, a glyph
- * that looks like a cross between a heart and a radish (this thing: ❧)—but
- * the most simple display, and one that will often be present even within
- * books that feature a fancy break as well, is plain old whitespace. We could
- * achieve this with empty paragraph tags, or a couple of <br> tags, but that's
- * not semantic, is hard to type in markdown, and makes me want to vomit.
- * We can do better.
- */
-hr {
-    border: none;
-    margin-bottom: 2em;
-    /**
-     * Increase the font size a bit, using ems to keep ratios consistent. A
-     * visible thematic break should be, well, visible, and having it at the
-     * same size as the text diminishes it somehow.
-     */
-    font-size: 1.25em;
-    /**
-     * Add spacing above and below. I set with ems, as this inherits the larger
-     * font size we set above, giving this a little bit more room.
-     */
-    margin: 1em auto;
-    /**
-     * Browser defaults for the <hr> element are a grey color, receding the
-     * content into the background, but we want our break to stand out (it's a
-     * break after all), and we want it to work in print. Although this will
-     * probably always be black, I use the currentColor keyword to pick up
-     * whatever the text color is as future proofing (dark mode, anyone?)
-     */
-    color: currentColor;
-    /**
-     * Center that thematic break. The stars are added using pseudo content,
-     * which default to inline display, so we don't need anything fancier than
-     * text-align here.
-     */
-    text-align: center;
-}
-
-/**
- * Actually add the stars in, using pseudo content.
- */
-hr::before {
+  }
+  hr::before {
     content: "* * *";
-}
-
-/**
- * nav is the table of contents
- */
-.table-of-contents {
-    min-height: 100vh;
-}
-
-.table-of-contents ol {
-    list-style-type: none;
-    padding: 0;
-}
-
-.table-of-contents p {
+    font-size: 1.25em;
+    margin: 1em auto;
+  }
+  .table-of-contents p {
     font-size: 2rem;
+  }
 }

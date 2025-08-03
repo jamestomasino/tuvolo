@@ -18,7 +18,7 @@ help:
 web: web/node_modules ## Launch web view of files
 	@node ./web/index.js
 
-render: web/node_modules $(DST_STATIC_FILES) ## Launch web view of files
+render: web/node_modules $(DST_STATIC_FILES) ## build web files to public folder
 	@node ./web/render.js
 
 $(DST_DIR)/%: $(SRC_DIR)/static/%
