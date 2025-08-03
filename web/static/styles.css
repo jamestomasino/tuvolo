@@ -13,16 +13,6 @@
   }
 }
 
-.last-page {
-    page: last_page;
-}
-
-@page last_page {
-    @bottom-center {
-        content: "END";
-    }
-}
-
 h1, h2, h3, h4, h5 {
   page-break-after: avoid;
 }
@@ -145,6 +135,20 @@ hr {
     width: 100%;
     text-align: center;
   }
+
+  .last-page {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    page-break-before: avoid;
+    text-align: center;
+    width: 100%;
+    margin: 2cm 0 0 0;
+  }
+  .last-page:after {
+    position: relative;
+    content: "END";
+  }
+
 }
 
 @media screen {
