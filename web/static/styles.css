@@ -131,9 +131,6 @@ hr {
   hr::before {
     content: "#";
   }
-  .table-of-contents {
-    margin-top: 8cm;
-  }
   .table-of-contents a {
     display: block;
   }
