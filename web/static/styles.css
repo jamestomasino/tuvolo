@@ -127,6 +127,9 @@ hr {
   hr::before {
     content: "#";
   }
+  .table-of-contents p {
+    font-weight: bold;
+  }
   .table-of-contents a {
     display: block;
   }
@@ -155,7 +158,11 @@ hr {
     position: relative;
     content: "END";
   }
-
+  a,
+  a:hover,
+  a:visited {
+    text-decoration: none;
+  }
 }
 
 @media screen {
@@ -195,6 +202,7 @@ hr {
 
   .table-of-contents p {
     font-size: 2rem;
+    font-weight: bold;
   }
 
   .category {
