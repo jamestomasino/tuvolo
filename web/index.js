@@ -122,7 +122,7 @@ app.get('*', function(req, res){
   }
 })
 
-const server = app.listen(0, (err) => {
+const server = app.listen(3219, (err) => {
   if (!err) {
     rootURL = `http://localhost:${server.address().port}`
     console.log(

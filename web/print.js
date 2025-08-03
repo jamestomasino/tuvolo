@@ -4,7 +4,7 @@ const { chromium } = require('playwright');
   const browser = await chromium.launch()
   const context = await browser.newContext({ ignoreHTTPSErrors: true })
   const page = await context.newPage()
-  const baseURL = 'http://localhost:34081'
+  const baseURL = 'http://localhost:3219'
 
   await page.goto(baseURL + '/book/')
   await page.pdf({ path: `Tomasino_TUVOLO_${getDate()}.pdf` });
