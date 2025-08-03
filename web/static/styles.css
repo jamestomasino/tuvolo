@@ -130,11 +130,12 @@ hr {
   .table-of-contents p {
     font-weight: bold;
   }
-  .table-of-contents a {
+  .toc a {
     display: block;
+    position: relative;
   }
-  .table-of-contents a::after {
-    content: leader(".") target-counter(attr(href), page); 
+  .toc a::after {
+    content: leader(".") target-counter(attr(href, url), page);
   }
 
   .category {
