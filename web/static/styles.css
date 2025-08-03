@@ -13,6 +13,16 @@
   }
 }
 
+.last-page {
+    page: last_page;
+}
+
+@page last_page {
+    @bottom-center {
+        content: "END";
+    }
+}
+
 h1, h2, h3, h4, h5 {
   page-break-after: avoid;
 }
@@ -39,24 +49,6 @@ table, figure {
   top: 0;
   left: 0;
   text-align: left;
-}
-
-.category {
-  position: absolute;
-  line-height: 1.4em;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-}
-
-header {
-  text-align: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 h1 {
@@ -118,6 +110,13 @@ hr {
     font-feature-settings: "hlig" 1, "dlig" 1, "onum" 1, "zero" 1, "swsh" 1, "kern" 1, "medi" 1;
     hyphens: none;
   }
+
+  header {
+    text-align: center;
+    margin-top: 10cm;
+    break-after: page;
+  }
+
   h2 {
     margin-top: 8cm;
     margin-bottom: 1cm;
@@ -137,6 +136,15 @@ hr {
   .table-of-contents a::after {
     content: leader(".") target-counter(attr(href), page); 
   }
+
+  .category {
+    position: absolute;
+    line-height: 1.4em;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media screen {
@@ -153,6 +161,14 @@ hr {
     box-sizing: border-box;
     scroll-behavior: smooth;
   }
+  header {
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   p + p {
     text-indent: 2ch;
   }
@@ -161,7 +177,21 @@ hr {
     font-size: 1.25em;
     margin: 1em auto;
   }
+
+  .table-of-contents {
+    margin: 200px 0;
+  }
+
   .table-of-contents p {
     font-size: 2rem;
+  }
+
+  .category {
+    position: absolute;
+    line-height: 1.4em;
+    top: calc(100vh - 4ch);
+    left: 0;
+    width: 100%;
+    text-align: center;
   }
 }

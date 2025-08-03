@@ -10,5 +10,6 @@
   </head>
   <body>
 ##content##
+    <div class="last-page"></div>
   </body>
 </html>
