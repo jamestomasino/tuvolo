@@ -39,4 +39,7 @@ endif
 web/node_modules: web/package.json
 	cd web; npm i
 
-.PHONY: help wc web render
+print:
+	@node ./web/print.js
+
+.PHONY: help wc web render print

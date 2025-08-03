@@ -4,7 +4,7 @@
 
 @page {
   @top-right {
-    content: "TOMASINO / TUVOLO / " counter(page);
+    content: "TOMASINO/TUVOLO/" counter(page);
   }
 }
 @page :first {
@@ -85,6 +85,10 @@ hr {
 @media print {
   h1, h2, h3, h4, h5 {
     font-size: 1em;
+    padding: 0;
+  }
+  p {
+    padding: 0;
   }
   h1 + p {
     line-height: 1.4em;
@@ -99,6 +103,9 @@ hr {
     font-variant: historical-ligatures;
     font-feature-settings: "hlig" 1, "dlig" 1, "onum" 1, "zero" 1, "swsh" 1, "kern" 1, "medi" 1;
     hyphens: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   header {
