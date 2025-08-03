@@ -1,3 +1,4 @@
+FILTER ?= book
 SRC_DIR ?= web
 DST_DIR ?= web/public
 
@@ -24,16 +25,18 @@ $(DST_DIR)/%: $(SRC_DIR)/static/%
 	$(mkdir)
 	$(copy)
 
+ifeq ($(FILTER), all)
 wc: ## total wordcount for repository
 	@find . -not -path "./web/*" -not -path "./.git/*" -not -path "./.*" -type f -exec cat {} + | wc -w
-
-wc_book: ## total wordcount for book itself
-	@find ./book -type f -exec cat {} + | wc -w
-
-wc_notes: ## total wordcount for notes
+else ifeq ($(FILTER), notes)
+wc:
 	@find ./notes -type f -exec cat {} + | wc -w
+else
+wc:
+	@find ./book -type f -exec cat {} + | wc -w
+endif
 
 web/node_modules: web/package.json
 	cd web; npm i
 
-.PHONY: help wc wc_book wc_notes web
+.PHONY: help wc web render
